@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:simplan/widgets/now_widget.dart';
+import 'package:simplan/widgets/add_button.dart';
+import 'package:simplan/widgets/plans.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -8,67 +11,42 @@ class Home extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Simplan"),
-        actions: [Icon(Icons.settings)],
+        title: Text("Simplan. 2024"),
+        // actions: [Icon(Icons.settings)],
       ),
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: SizedBox(
-            width: screenSize.width * 0.9,
+            width: screenSize.width * 1,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  child: Text(
-                      "그대들은 어떻게 살 것인가, 그대들은 어떻게 살 것인가, 그대들은 어떻게 살 것인가, 그대들은 어떻게 살 것인가, 그대들은 어떻게 살 것인가, "),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: SizedBox(
-                        height: screenSize.height * 0.4,
+                NowWidget(screenSize: screenSize),
+                Center(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 32,
                         width: screenSize.width * 0.45,
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 48,
-                              width: screenSize.width * 0.45,
-                              color: Colors.black,
-                            ),
-                            SizedBox(
-                              width: screenSize.width * 0.45,
-                              height: screenSize.height * 0.3,
-                              child: ListView(
-                                children: [
-                                  Container(
-                                    width: 100,
-                                    height: 100,
-                                    color: Colors.green,
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
+                        child: Text(
+                          "TO DO",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 24),
                         ),
                       ),
-                    ),
-                    Center(
-                      child: SizedBox(
-                        height: screenSize.height * 0.4,
+                      AddButton(screenSize: screenSize),
+                      Plans(screenSize: screenSize),
+                      SizedBox(
+                        height: 32,
                         width: screenSize.width * 0.45,
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 48,
-                              width: screenSize.width * 0.45,
-                              color: Colors.red,
-                            ),
-                          ],
+                        child: Text(
+                          "DONE",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 24),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )
               ],
             )),

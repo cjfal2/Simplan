@@ -3,16 +3,28 @@ import 'package:simplan/widgets/now_widget.dart';
 import 'package:simplan/widgets/add_button.dart';
 import 'package:simplan/widgets/plans.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Simplan. 2024"),
-        // actions: [Icon(Icons.settings)],
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Simplan."),
+            NowWidget(screenSize: screenSize),
+          ],
+        ),
+        backgroundColor: Color(0xFFD1E9FF),
       ),
       resizeToAvoidBottomInset: false,
       body: Center(
@@ -21,7 +33,7 @@ class Home extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                NowWidget(screenSize: screenSize),
+                // NowWidget(screenSize: screenSize),
                 Center(
                   child: Column(
                     children: [

@@ -21,7 +21,7 @@ class AddButton extends StatelessWidget {
         width: screenSize.width * 0.8,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.blueGrey,
+          color: Color.fromARGB(255, 233, 207, 207),
         ),
         child: Icon(Icons.add),
       ),

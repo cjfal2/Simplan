@@ -121,7 +121,7 @@ Future addDialog(context) async {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {
+                      onTap: () async {
                         // GetX의 ToDoController에 새로운 항목 추가
                         toDoController.addTask(titleText, contentText);
 

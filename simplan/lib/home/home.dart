@@ -33,30 +33,11 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // NowWidget(screenSize: screenSize),
                 Center(
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 32,
-                        width: screenSize.width * 0.45,
-                        child: Text(
-                          "TO DO",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
                       AddButton(screenSize: screenSize),
                       Plans(screenSize: screenSize),
-                      SizedBox(
-                        height: 32,
-                        width: screenSize.width * 0.45,
-                        child: Text(
-                          "DONE",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
                     ],
                   ),
                 )

@@ -3,7 +3,7 @@ import 'package:get_storage/get_storage.dart';
 
 class ToDoController extends GetxController {
   var toDoList = [
-    ["운동하기", '다리 조지기']
+    ["운동하기", '다리 조지기', "T"]
   ].obs;
   @override
   void onInit() {
@@ -19,8 +19,17 @@ class ToDoController extends GetxController {
   }
 
   void addTask(String title, String content) {
-    toDoList.add([title, content]);
+    toDoList.add([title, content, "T"]);
     update();
+  }
+
+  void updateTaskStatus(int index) {
+    if (index >= 0 && index < toDoList.length) {
+      // 'T'를 'F'로, 'F'를 'T'로 변경
+      toDoList[index][2] = toDoList[index][2] == 'T' ? 'F' : 'T';
+
+      update(); // 변경사항을 화면에 갱신
+    }
   }
 
   void editTask(int index, List<String> updatedTasks) {

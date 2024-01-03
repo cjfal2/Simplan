@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:simplan/controller/to_do_controller.dart';
+import 'package:get_storage/get_storage.dart';
 
 Future addDialog(context) async {
   String titleText = '';
   String contentText = '';
+  final box = GetStorage(); // GetStorage 인스턴스 생성
+  final ToDoController toDoController = Get.find();
   TextEditingController titleController = TextEditingController();
   TextEditingController contentController = TextEditingController();
   return showDialog(
@@ -117,7 +121,15 @@ Future addDialog(context) async {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => {Get.back()},
+                      onTap: () {
+                        // GetX의 ToDoController에 새로운 항목 추가
+                        toDoController.addTask(titleText, contentText);
+
+                        final List<List<String>> currentToDoList =
+                            toDoController.toDoList.toList();
+                        box.write('tasks', currentToDoList);
+                        Get.back(); // 다이얼로그 닫기
+                      },
                       child: Container(
                         width: 100,
                         height: 40,

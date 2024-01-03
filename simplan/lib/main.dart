@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 void main() async {
   await GetStorage.init();
+  await GetStorage().read("tasks");
   runApp(const Simplan());
 }
 

@@ -2,9 +2,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class ToDoController extends GetxController {
-  var toDoList = [
-    ["운동하기", '다리 조지기', "T"]
-  ].obs;
+  var toDoList = [].obs;
   @override
   void onInit() {
     final box = GetStorage();

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:simplan/controller/to_do_controller.dart';
-import 'package:simplan/home/home.dart';
 
 class Plans extends StatefulWidget {
   const Plans({
@@ -39,7 +38,7 @@ class _PlansState extends State<Plans> {
                       InkWell(
                         onTap: () {
                           toDoController.updateTaskStatus(index);
-                          final List<List<String>> currentToDoList =
+                          final List<dynamic> currentToDoList =
                               toDoController.toDoList.toList();
                           box.write('tasks', currentToDoList);
 

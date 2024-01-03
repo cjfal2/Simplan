@@ -125,7 +125,7 @@ Future addDialog(context) async {
                         // GetX의 ToDoController에 새로운 항목 추가
                         toDoController.addTask(titleText, contentText);
 
-                        final List<List<String>> currentToDoList =
+                        final List<dynamic> currentToDoList =
                             toDoController.toDoList.toList();
                         box.write('tasks', currentToDoList);
                         Get.back(); // 다이얼로그 닫기

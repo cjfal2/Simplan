@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:simplan/controller/to_do_controller.dart';
+import 'package:simplan/widgets/detail_dialog.dart';
 
 class Plans extends StatefulWidget {
   const Plans({
@@ -73,9 +74,13 @@ class _PlansState extends State<Plans> {
                           ),
                         ),
                       ),
-                      Icon(
-                        Icons.search_rounded,
-                        size: 28,
+                      InkWell(
+                        onTap: () =>
+                            {detailDialog(context, tasks[0], tasks[1], index)},
+                        child: Icon(
+                          Icons.search_rounded,
+                          size: 28,
+                        ),
                       ),
                     ],
                   ),

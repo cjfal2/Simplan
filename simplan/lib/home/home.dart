@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:simplan/widgets/now_widget.dart';
 import 'package:simplan/widgets/add_button.dart';
 import 'package:simplan/widgets/plans.dart';
+import 'package:get/get.dart';
+import 'package:simplan/controller/to_do_controller.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,8 +16,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    final toDoController = Get.put(ToDoController());
+    GetStorage box = GetStorage();
     Size screenSize = MediaQuery.of(context).size;
-
+    bool temp = true;
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -36,7 +41,33 @@ class _HomeState extends State<Home> {
                 Center(
                   child: Column(
                     children: [
-                      AddButton(screenSize: screenSize),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: AddButton(screenSize: screenSize),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              toDoController.deleteAllTasks();
+                              await box.erase();
+                              setState(() {
+                                // super.setState();
+                                temp = !temp;
+                              });
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              child: Icon(
+                                Icons.delete_forever_outlined,
+                                size: 40,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                       Plans(screenSize: screenSize),
                     ],
                   ),

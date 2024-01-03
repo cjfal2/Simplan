@@ -18,7 +18,7 @@ class AddButton extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 5),
         height: 30,
-        width: screenSize.width * 0.8,
+        width: screenSize.width * 0.7,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Color.fromARGB(255, 233, 207, 207),

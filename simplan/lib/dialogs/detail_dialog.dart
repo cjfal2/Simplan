@@ -79,7 +79,6 @@ Future detailDialog(context, title, content, idx) async {
                 maxLength: 100,
                 maxLines: 5,
                 controller: contentController,
-                //  onSubmitted: sendMsg,  //키보드로 엔터 클릭 시 호출
                 onChanged: (text) {
                   contentText = text;
                 }, //text 가 입력될 때 마다 호출
@@ -125,12 +124,6 @@ Future detailDialog(context, title, content, idx) async {
                     GestureDetector(
                       onTap: () async {
                         deleteOneDialog(context, idx, titleText, contentText);
-                        // toDoController.deleteTask(idx);
-
-                        // final List<dynamic> currentToDoList =
-                        //     toDoController.toDoList.toList();
-                        // box.write('tasks', currentToDoList);
-                        // Get.back(); // 다이얼로그 닫기
                       },
                       child: Container(
                         width: 72,

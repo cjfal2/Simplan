@@ -38,7 +38,7 @@ dependencies:
   intl:  # 시간 패키지
   get: # getX
   get_storage:
-  flutter_launcher_icons:
+  change_app_package_name: ^1.1.0
 
 dev_dependencies:
   flutter_test:

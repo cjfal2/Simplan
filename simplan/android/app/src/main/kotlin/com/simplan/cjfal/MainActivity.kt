@@ -1,4 +1,4 @@
-package com.example.simplan
+package com.simplan.cjfal
 
 import io.flutter.embedding.android.FlutterActivity
 

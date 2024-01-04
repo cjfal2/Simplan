@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:simplan/dialogs/delete_all_dialog.dart';
 import 'package:simplan/widgets/now_widget.dart';
 import 'package:simplan/widgets/add_button.dart';
 import 'package:simplan/widgets/plans.dart';
-import 'package:get/get.dart';
-import 'package:simplan/controller/to_do_controller.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,8 +14,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    final toDoController = Get.put(ToDoController());
-    GetStorage box = GetStorage();
     Size screenSize = MediaQuery.of(context).size;
     bool temp = true;
     return Scaffold(
@@ -50,10 +46,8 @@ class _HomeState extends State<Home> {
                           ),
                           InkWell(
                             onTap: () async {
-                              toDoController.deleteAllTasks();
-                              await box.erase();
+                              deleteAllDialog(context);
                               setState(() {
-                                // super.setState();
                                 temp = !temp;
                               });
                             },

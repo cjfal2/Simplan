@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:simplan/controller/to_do_controller.dart';
-import 'package:simplan/widgets/detail_dialog.dart';
+import 'package:simplan/dialogs/detail_dialog.dart';
 
 class Plans extends StatefulWidget {
   const Plans({

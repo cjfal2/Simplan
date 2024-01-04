@@ -38,7 +38,7 @@ dependencies:
   intl:  # 시간 패키지
   get: # getX
   get_storage:
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

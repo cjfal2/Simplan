@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simplan/widgets/add_dialog.dart';
+import 'package:simplan/dialogs/add_dialog.dart';
 
 class AddButton extends StatelessWidget {
   const AddButton({

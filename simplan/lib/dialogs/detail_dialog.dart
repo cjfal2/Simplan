@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simplan/controller/to_do_controller.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:simplan/dialogs/delete_one_dialog.dart';
 
 Future detailDialog(context, title, content, idx) async {
   String titleText = title;
@@ -123,12 +124,13 @@ Future detailDialog(context, title, content, idx) async {
                     ),
                     GestureDetector(
                       onTap: () async {
-                        toDoController.deleteTask(idx);
+                        deleteOneDialog(context, idx, titleText, contentText);
+                        // toDoController.deleteTask(idx);
 
-                        final List<dynamic> currentToDoList =
-                            toDoController.toDoList.toList();
-                        box.write('tasks', currentToDoList);
-                        Get.back(); // 다이얼로그 닫기
+                        // final List<dynamic> currentToDoList =
+                        //     toDoController.toDoList.toList();
+                        // box.write('tasks', currentToDoList);
+                        // Get.back(); // 다이얼로그 닫기
                       },
                       child: Container(
                         width: 72,
